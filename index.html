@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saksham Ranabhat | Portfolio</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --bg: #f8fafc;
+      --text: #1e293b;
+      --card-bg: #ffffff;
+      --nav-bg: #1e293b;
+    }
+
+    body.dark {
+      --primary: #60a5fa;
+      --bg: #020617;
+      --text: #e5e7eb;
+      --card-bg: #0f172a;
+      --nav-bg: #0f172a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: all 0.3s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---------- NAV ---------- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 10%;
+      background: var(--nav-bg);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* ---------- PAGE LOGIC ---------- */
+    .page {
+      display: none; /* Hidden by default */
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- HERO (HOME) ---------- */
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .hero img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      border: 4px solid var(--primary);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.2rem; opacity: 0.8; }
+
+    /* ---------- CARDS & SKILLS ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .card:hover { transform: translateY(-5px); }
+
+    .skills-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: var(--primary);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact-form {
+      max-width: 600px;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: var(--card-bg);
+      color: var(--text);
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: auto;
+      text-align: center;
+      padding: 2rem;
+      background: var(--nav-bg);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h2 style="font-size: 1.2rem;">Saksham.dev</h2>
+    <div class="nav-links">
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('projects')">Projects</a>
+      <a onclick="showPage('about')">About/Contact</a>
+    </div>
+    <button class="theme-toggle" onclick="toggleDark()">🌙</button>
+  </nav>
+
+  <main id="home" class="page active">
+    <div class="hero">
+      <img src="c:\Users\eCs\OneDrive\Pictures\Camera Roll\FB_IMG_1748790930495.jpg" alt="Saksham Ranabhat">
+      <h1>Hi, I'm Saksham 👋</h1>
+      <p>Class 11 CS Student | Aspiring Developer</p>
+    </div>
+    
+    <section>
+      <h2 style="text-align: center;">Core Expertise</h2>
+      <div class="skills-flex" style="justify-content: center;">
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">UI Design</span>
+        <span class="skill-tag">Problem Solving</span>
+      </div>
+    </section>
+  </main>
+
+  <main id="projects" class="page">
+    <h2 style="margin-bottom: 1rem; border-left: 5px solid var(--primary); padding-left: 1rem;">My Work</h2>
+    <p>A collection of things I've built while learning.</p>
+    
+    <div class="grid">
+      <div class="card">
+        <h3>Interactive Portfolio</h3>
+        <p>A 3-page personal website featuring dark mode, CSS animations, and dynamic navigation.</p>
+        <p style="margin-top:1rem; color: var(--primary); font-weight:bold;">#HTML #CSS #JS</p>
+      </div>
+      <div class="card">
+        <h3>School Management System</h3>
+        <p>A conceptual UI for managing student records and grades efficiently.</p>
+        <p style="margin-top:1rem; color: var(--primary); font-weight:bold;">#WebDesign</p>
+      </div>
+      <div class="card">
+        <h3>Future Vision</h3>
+        <p>Working on a real-world problem solver for local businesses in Hetauda.</p>
+        <p style="margin-top:1rem; color: var(--primary); font-weight:bold;">#ComingSoon</p>
+      </div>
+    </div>
+  </main>
+
+  <main id="about" class="page">
+    <h2>About Me</h2>
+    <div class="card" style="margin: 1.5rem 0;">
+      <p>I am a 17-year-old student at <strong>Hetauda School of Management</strong>. My journey into tech started with curiosity about how websites work, and now I'm building them. I'm currently focusing on mastering JavaScript and exploring backend technologies.</p>
+    </div>
+
+    <h2>Get In Touch</h2>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent!')">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    <p style="text-align: center; margin-top: 1rem;">Direct Email: sakshyamranabhat593@gmail.com</p>
+  </main>
+
+  <footer>
+    © 2026 Saksham Ranabhat | Hetauda, Nepal
+  </footer>
+
+  <script>
+    // PAGE NAVIGATION LOGIC
+    function showPage(pageId) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+      
+      // Show the selected page
+      document.getElementById(pageId).classList.add('active');
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+
+    // DARK MODE LOGIC
+    function toggleDark() {
+      document.body.classList.toggle("dark");
+      const btn = document.querySelector(".theme-toggle");
+      btn.innerHTML = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    }
+  </script>
+</body>
+</html>
